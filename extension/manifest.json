@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+  "name": "fxmcp bridge",
+  "version": "1.1.1",
+  "description": "Local control surface for the fxmcp MCP server: search, read and drive pages in your own browser.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "fxmcp@local",
+      "strict_min_version": "142.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+  "permissions": [
+    "<all_urls>",
+    "tabs",
+    "webNavigation",
+    "storage"
+  ],
+  "background": {
+    "page": "background.html",
+    "persistent": true
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["lib/extract.js", "lib/act.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ]
+}
