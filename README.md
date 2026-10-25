@@ -103,6 +103,12 @@ the `// fxmcp:start … // fxmcp:end` block to undo.
 Connection settings (endpoint, token, worker-tab count) are in the add-on's **Preferences** page,
 backed by `storage.local`. Rotating `~/.fxmcp/token` therefore never requires a rebuild — paste the
 new value and it reconnects.
+
+### Prebuilt bundle
+
+Releases ship `fxmcp_bridge-<version>.xpi`, built from this tree with `CONFIG.token` blanked so no
+secret is distributed. Install it, then paste the token from `~/.fxmcp/token` into the add-on's
+Preferences. It is unsigned — the rules above still apply.
 ### opencode
 
 ```json
